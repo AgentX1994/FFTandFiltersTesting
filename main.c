@@ -374,13 +374,13 @@ int main(void)
     // Open audio stream
     PaStream *stream;
     err = Pa_OpenDefaultStream(&stream,
-                               0,               // # input channels
-                               1,               // # output channels
-                               paFloat32,       // Type
+                               0,                               // # input channels
+                               1,                               // # output channels
+                               paFloat32,                       // Type
                                sfinfo.samplerate,
-                               256,             // Frames per buffer
-                               audio_callback,  // Callback function for audio
-                               &data);          // data to be passed to callback
+                               paFramesPerBufferUnspecified,    // Frames per buffer
+                               audio_callback,                  // Callback function for audio
+                               &data);                          // data to be passed to callback
     if( err != paNoError){
         print_pa_error(err);
         goto error;
